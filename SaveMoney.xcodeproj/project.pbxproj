@@ -13,6 +13,30 @@
 		3F3011B6291FD5B200613D2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3011B4291FD5B200613D2D /* Main.storyboard */; };
 		3F3011B8291FD5B400613D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F3011B7291FD5B400613D2D /* Assets.xcassets */; };
 		3F3011BB291FD5B400613D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3011B9291FD5B400613D2D /* LaunchScreen.storyboard */; };
+		3F3011C3291FDE1000613D2D /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3011C2291FDE1000613D2D /* DataStore.swift */; };
+		3F4DF5E52944C07C00092D2C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4DF5E42944C07C00092D2C /* Coordinator.swift */; };
+		3F4DF5E72944C42C00092D2C /* ViewControllerUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4DF5E62944C42C00092D2C /* ViewControllerUpdatable.swift */; };
+		3F563CBB293747D60009E755 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F563CBA293747D60009E755 /* Int+.swift */; };
+		3F90B6252A373BD700674CDD /* NTMonth+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F90B6242A373BD700674CDD /* NTMonth+Model.swift */; };
+		3FCDE061293DDB0A003583B1 /* SpendListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDE060293DDB0A003583B1 /* SpendListTableViewController.swift */; };
+		3FCDE063293DE25E003583B1 /* SpendListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDE062293DE25E003583B1 /* SpendListTableCell.swift */; };
+		3FDDDF0A29275EAD00ECFCCE /* function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF0929275EAD00ECFCCE /* function.swift */; };
+		3FDDDF0D29275F5C00ECFCCE /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF0C29275F5C00ECFCCE /* Date+.swift */; };
+		3FDDDF102927680600ECFCCE /* NTObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF0F2927680600ECFCCE /* NTObject.swift */; };
+		3FDDDF122927680B00ECFCCE /* NTSpendDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF112927680B00ECFCCE /* NTSpendDay.swift */; };
+		3FDDDF152927682100ECFCCE /* NTMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF142927682100ECFCCE /* NTMonth.swift */; };
+		3FDDDF1729276A0600ECFCCE /* NTGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF1629276A0600ECFCCE /* NTGroup.swift */; };
+		3FDDDF1929276C1000ECFCCE /* NTSpendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF1829276C1000ECFCCE /* NTSpendCategory.swift */; };
+		3FDDDF1B29276CBA00ECFCCE /* SQLiteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF1A29276CBA00ECFCCE /* SQLiteDataStore.swift */; };
+		3FDDDF1E29277BDA00ECFCCE /* DayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF1D29277BDA00ECFCCE /* DayListViewController.swift */; };
+		3FDDDF2029278E7C00ECFCCE /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF1F29278E7C00ECFCCE /* MonthYearPickerView.swift */; };
+		3FDDDF232927979D00ECFCCE /* SpendDayTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF222927979D00ECFCCE /* SpendDayTableCell.swift */; };
+		3FDDDF252927B48200ECFCCE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF242927B48200ECFCCE /* UIView+.swift */; };
+		3FDDDF292927BC0E00ECFCCE /* AddMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF282927BC0E00ECFCCE /* AddMonthViewController.swift */; };
+		3FDDDF2B2927BCED00ECFCCE /* GroupTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF2A2927BCED00ECFCCE /* GroupTableCell.swift */; };
+		3FDDDF2E29309CAE00ECFCCE /* SpendDayTableAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF2D29309CAE00ECFCCE /* SpendDayTableAddCell.swift */; };
+		3FDDDF302930A0E800ECFCCE /* AddSpendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF2F2930A0E800ECFCCE /* AddSpendViewController.swift */; };
+		3FDDDF322930A34D00ECFCCE /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF312930A34D00ECFCCE /* CategoryTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +48,30 @@
 		3F3011B7291FD5B400613D2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F3011BA291FD5B400613D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F3011BC291FD5B400613D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F3011C2291FDE1000613D2D /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		3F4DF5E42944C07C00092D2C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3F4DF5E62944C42C00092D2C /* ViewControllerUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUpdatable.swift; sourceTree = "<group>"; };
+		3F563CBA293747D60009E755 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		3F90B6242A373BD700674CDD /* NTMonth+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NTMonth+Model.swift"; sourceTree = "<group>"; };
+		3FCDE060293DDB0A003583B1 /* SpendListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendListTableViewController.swift; sourceTree = "<group>"; };
+		3FCDE062293DE25E003583B1 /* SpendListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendListTableCell.swift; sourceTree = "<group>"; };
+		3FDDDF0929275EAD00ECFCCE /* function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = function.swift; sourceTree = "<group>"; };
+		3FDDDF0C29275F5C00ECFCCE /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		3FDDDF0F2927680600ECFCCE /* NTObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTObject.swift; sourceTree = "<group>"; };
+		3FDDDF112927680B00ECFCCE /* NTSpendDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTSpendDay.swift; sourceTree = "<group>"; };
+		3FDDDF142927682100ECFCCE /* NTMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTMonth.swift; sourceTree = "<group>"; };
+		3FDDDF1629276A0600ECFCCE /* NTGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTGroup.swift; sourceTree = "<group>"; };
+		3FDDDF1829276C1000ECFCCE /* NTSpendCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTSpendCategory.swift; sourceTree = "<group>"; };
+		3FDDDF1A29276CBA00ECFCCE /* SQLiteDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDataStore.swift; sourceTree = "<group>"; };
+		3FDDDF1D29277BDA00ECFCCE /* DayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayListViewController.swift; sourceTree = "<group>"; };
+		3FDDDF1F29278E7C00ECFCCE /* MonthYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		3FDDDF222927979D00ECFCCE /* SpendDayTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendDayTableCell.swift; sourceTree = "<group>"; };
+		3FDDDF242927B48200ECFCCE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		3FDDDF282927BC0E00ECFCCE /* AddMonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthViewController.swift; sourceTree = "<group>"; };
+		3FDDDF2A2927BCED00ECFCCE /* GroupTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableCell.swift; sourceTree = "<group>"; };
+		3FDDDF2D29309CAE00ECFCCE /* SpendDayTableAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendDayTableAddCell.swift; sourceTree = "<group>"; };
+		3FDDDF2F2930A0E800ECFCCE /* AddSpendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendViewController.swift; sourceTree = "<group>"; };
+		3FDDDF312930A34D00ECFCCE /* CategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +104,13 @@
 		3F3011AD291FD5B200613D2D /* SaveMoney */ = {
 			isa = PBXGroup;
 			children = (
+				3F4DF5E32944C07200092D2C /* Coordinator */,
+				3FDDDF2C2930955300ECFCCE /* View */,
+				3FDDDF1C29277BC500ECFCCE /* ViewController */,
+				3F3011C4291FDE7C00613D2D /* DataStore */,
+				3FDDDF0E292767F200ECFCCE /* NTObject */,
+				3FDDDF0B29275F5800ECFCCE /* Extension */,
+				3FDDDF0829275EA700ECFCCE /* function */,
 				3F3011AE291FD5B200613D2D /* AppDelegate.swift */,
 				3F3011B0291FD5B200613D2D /* SceneDelegate.swift */,
 				3F3011B2291FD5B200613D2D /* ViewController.swift */,
@@ -65,6 +120,95 @@
 				3F3011BC291FD5B400613D2D /* Info.plist */,
 			);
 			path = SaveMoney;
+			sourceTree = "<group>";
+		};
+		3F3011C4291FDE7C00613D2D /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				3F3011C2291FDE1000613D2D /* DataStore.swift */,
+				3FDDDF1A29276CBA00ECFCCE /* SQLiteDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		3F4DF5E32944C07200092D2C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3F4DF5E42944C07C00092D2C /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		3F90B6222A373BB000674CDD /* Month */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDDF142927682100ECFCCE /* NTMonth.swift */,
+				3F90B6242A373BD700674CDD /* NTMonth+Model.swift */,
+				3FDDDF1629276A0600ECFCCE /* NTGroup.swift */,
+			);
+			path = Month;
+			sourceTree = "<group>";
+		};
+		3F90B6232A373BB700674CDD /* Day */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDDF1829276C1000ECFCCE /* NTSpendCategory.swift */,
+				3FDDDF112927680B00ECFCCE /* NTSpendDay.swift */,
+			);
+			path = Day;
+			sourceTree = "<group>";
+		};
+		3FDDDF0829275EA700ECFCCE /* function */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDDF0929275EAD00ECFCCE /* function.swift */,
+			);
+			path = function;
+			sourceTree = "<group>";
+		};
+		3FDDDF0B29275F5800ECFCCE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDDF0C29275F5C00ECFCCE /* Date+.swift */,
+				3FDDDF242927B48200ECFCCE /* UIView+.swift */,
+				3F563CBA293747D60009E755 /* Int+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3FDDDF0E292767F200ECFCCE /* NTObject */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDDF0F2927680600ECFCCE /* NTObject.swift */,
+				3F90B6222A373BB000674CDD /* Month */,
+				3F90B6232A373BB700674CDD /* Day */,
+			);
+			path = NTObject;
+			sourceTree = "<group>";
+		};
+		3FDDDF1C29277BC500ECFCCE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDDF1D29277BDA00ECFCCE /* DayListViewController.swift */,
+				3FDDDF282927BC0E00ECFCCE /* AddMonthViewController.swift */,
+				3FDDDF2F2930A0E800ECFCCE /* AddSpendViewController.swift */,
+				3FCDE060293DDB0A003583B1 /* SpendListTableViewController.swift */,
+				3F4DF5E62944C42C00092D2C /* ViewControllerUpdatable.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3FDDDF2C2930955300ECFCCE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDDF1F29278E7C00ECFCCE /* MonthYearPickerView.swift */,
+				3FDDDF222927979D00ECFCCE /* SpendDayTableCell.swift */,
+				3FDDDF2D29309CAE00ECFCCE /* SpendDayTableAddCell.swift */,
+				3FDDDF2A2927BCED00ECFCCE /* GroupTableCell.swift */,
+				3FDDDF312930A34D00ECFCCE /* CategoryTableCell.swift */,
+				3FCDE062293DE25E003583B1 /* SpendListTableCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +282,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FDDDF2029278E7C00ECFCCE /* MonthYearPickerView.swift in Sources */,
+				3FDDDF1E29277BDA00ECFCCE /* DayListViewController.swift in Sources */,
+				3FDDDF2B2927BCED00ECFCCE /* GroupTableCell.swift in Sources */,
+				3FDDDF2E29309CAE00ECFCCE /* SpendDayTableAddCell.swift in Sources */,
 				3F3011B3291FD5B200613D2D /* ViewController.swift in Sources */,
+				3FDDDF1B29276CBA00ECFCCE /* SQLiteDataStore.swift in Sources */,
+				3FDDDF152927682100ECFCCE /* NTMonth.swift in Sources */,
+				3F3011C3291FDE1000613D2D /* DataStore.swift in Sources */,
 				3F3011AF291FD5B200613D2D /* AppDelegate.swift in Sources */,
+				3F90B6252A373BD700674CDD /* NTMonth+Model.swift in Sources */,
+				3FCDE063293DE25E003583B1 /* SpendListTableCell.swift in Sources */,
+				3FCDE061293DDB0A003583B1 /* SpendListTableViewController.swift in Sources */,
+				3FDDDF0D29275F5C00ECFCCE /* Date+.swift in Sources */,
+				3FDDDF122927680B00ECFCCE /* NTSpendDay.swift in Sources */,
+				3FDDDF1929276C1000ECFCCE /* NTSpendCategory.swift in Sources */,
+				3FDDDF232927979D00ECFCCE /* SpendDayTableCell.swift in Sources */,
 				3F3011B1291FD5B200613D2D /* SceneDelegate.swift in Sources */,
+				3FDDDF252927B48200ECFCCE /* UIView+.swift in Sources */,
+				3F563CBB293747D60009E755 /* Int+.swift in Sources */,
+				3FDDDF1729276A0600ECFCCE /* NTGroup.swift in Sources */,
+				3FDDDF292927BC0E00ECFCCE /* AddMonthViewController.swift in Sources */,
+				3FDDDF302930A0E800ECFCCE /* AddSpendViewController.swift in Sources */,
+				3FDDDF102927680600ECFCCE /* NTObject.swift in Sources */,
+				3F4DF5E52944C07C00092D2C /* Coordinator.swift in Sources */,
+				3FDDDF0A29275EAD00ECFCCE /* function.swift in Sources */,
+				3FDDDF322930A34D00ECFCCE /* CategoryTableCell.swift in Sources */,
+				3F4DF5E72944C42C00092D2C /* ViewControllerUpdatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
