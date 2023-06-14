@@ -74,6 +74,11 @@ extension Date {
         return WeekDay(date: self)
     }
     
+    var isToday: Bool {
+        let calendar = Calendar.current
+        return calendar.isDateInToday(self)
+    }
+    
     static func dateFrom(month: Int, year: Int) -> Date {
         let dateComponents = DateComponents(year: year, month: month)
         let calendar = Calendar.current

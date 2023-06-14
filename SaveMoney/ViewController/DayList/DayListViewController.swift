@@ -36,6 +36,13 @@ class DayListViewController: UIViewController {
         self.bindingViewModel()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let indexPathToScroll = IndexPath(row: Date().day, section: 0)
+        if (tableView.numberOfRows(inSection: 0) > indexPathToScroll.row) {
+            tableView.scrollToRow(at: indexPathToScroll, at: .middle, animated: true)
+        }
+    }
+    
     func bindingViewModel() {
         
         self.viewModel.$ntMonths.sink(receiveValue: { (allNtMonth: [NTMonth]) in
@@ -154,30 +161,10 @@ class DayListViewController: UIViewController {
     }
     
     @IBAction func showSpendListViewController(_ sender: Any) {
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(tableView.contentSize.width, tableView.contentSize.height),false, 0.0)
-
-        let context = UIGraphicsGetCurrentContext()
-
-        let previousFrame = tableView.frame
-
-        tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.contentSize.width, tableView.contentSize.height);
-        tableView.layoutIfNeeded()
-        tableView.layer.render(in:context!)
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
-        tableView.frame = previousFrame
-        let imageData = image!.pngData()!
-        let documentsURL: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath: URL = documentsURL.appendingPathComponent("saveMoney")
-        let fileURL = filePath.appendingPathComponent("image.png")
-        try! imageData.write(to: fileURL)
-        
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        guard let addMonth: SpendListTableViewController = storyboard.instantiateViewController(identifier: "SpendListTableViewController") as? SpendListTableViewController else { return }
-//        addMont   h.ntMonth = self.currentNtMonth
-//        show(addMonth, sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let addMonth: SpendListTableViewController = storyboard.instantiateViewController(identifier: "SpendListTableViewController") as? SpendListTableViewController else { return }
+        addMonth.ntMonth = self.currentNtMonth
+        show(addMonth, sender: self)
     }
     
     

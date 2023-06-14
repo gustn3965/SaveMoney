@@ -18,6 +18,9 @@ class AddSpendViewController: UIViewController {
     @IBOutlet weak var spendTextField: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var countTitleLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var countStepper: UIStepper!
     
     weak var delegate: AddSpendViewControllerDelegate?
     
@@ -25,6 +28,7 @@ class AddSpendViewController: UIViewController {
     var selectedCategory: NTSpendCategory?
     var currentDate: Date?
     var currentNtMonth: NTMonth?
+    
     
     var ntSpend: NTSpendDay?
     override func viewDidLoad() {
@@ -56,6 +60,9 @@ class AddSpendViewController: UIViewController {
             self.categorySelectedLabel.text = selectedCategory?.name
             self.deleteButton.isHidden = false
             self.selectedCategory = ntSpend.category
+            self.countStepper.isEnabled = false
+            self.countLabel.isEnabled = false
+            self.countTitleLabel.isEnabled = false
         }
     }
     
@@ -73,7 +80,12 @@ class AddSpendViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    @IBAction func changedStepper(_ sender: UIStepper) {
+        print(sender.value)
+        self.countLabel.text = "\(Int(sender.value))"
+    }
     
+
     @IBAction func addSpend(_ sender: UIButton) {
         if let ntSpend = self.ntSpend {
             guard let category: NTSpendCategory = self.selectedCategory,
@@ -86,27 +98,32 @@ class AddSpendViewController: UIViewController {
             self.delegate?.addSpendViewControllerDidCreate()
             self.dismiss(animated: true)
         } else {
-            guard let category: NTSpendCategory = self.selectedCategory,
-                  let spendText: String = self.spendTextField.text,
-                  let spend: Int = Int(spendText),
-                  let intDate: Int = self.currentDate?.int1970Date,
-                  let ntMonth: NTMonth = self.currentNtMonth else {
-                return
-            }
-     
             
-            if (NTSpendDay.create(id: NTObject.index(),
-                               date: intDate,
-                               spend: spend,
-                               monthId: ntMonth.id,
-                               groupId: ntMonth.groupId,
-                               categoryId: category.id)) != nil {
-                self.delegate?.addSpendViewControllerDidCreate()
-                self.dismiss(animated: true)
+            for _ in 1...Int(self.countStepper.value) {
+                guard let category: NTSpendCategory = self.selectedCategory,
+                      let spendText: String = self.spendTextField.text,
+                      let spend: Int = Int(spendText),
+                      let intDate: Int = self.currentDate?.int1970Date,
+                      let ntMonth: NTMonth = self.currentNtMonth else {
+                    return
+                }
+                
+                let id = NTObject.index()
+                if (NTSpendDay.create(id: id,
+                                   date: intDate,
+                                   spend: spend,
+                                   monthId: ntMonth.id,
+                                   groupId: ntMonth.groupId,
+                                   categoryId: category.id)) == nil {
+                    print("🚨 Create faield!!!")
+                    // need alert
+                    return
+                }
             }
+            
+            self.delegate?.addSpendViewControllerDidCreate()
+            self.dismiss(animated: true)
         }
-        
-        
     }
     
     @IBAction func deleteSpend(_ sender: UIButton) {
@@ -141,4 +158,9 @@ extension AddSpendViewController: UITableViewDelegate, UITableViewDataSource {
         self.selectedCategory = category
         self.categorySelectedLabel.text = category.name
     }
+}
+
+
+extension AddSpendViewController {
+
 }

@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        DataStore.migrationNTSpend()
 //        DataStore.migrationNTCategory()
-        DataStore.removeOldNTSpendTable()
-        DataStore.removeOldNTCategoryTable()
+//        DataStore.removeOldNTSpendTable()
+//        DataStore.removeOldNTCategoryTable()
         
         
         // Override point for customization after application launch.
