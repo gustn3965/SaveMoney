@@ -333,4 +333,24 @@ extension SQLiteDataStore {
         print("🎉Success migration....TO NTSpendCategory")
         print(self.fetchAll(NTSpendCategory.self)?.count)
     }
+    
+    func removeOldNTSpendTable() {
+        self.dropTable(name: "NTSpend")
+    }
+    
+    func removeOldNTCategoryTable() {
+        self.dropTable(name: "NTCategory")
+    }
+    
+    private func dropTable(name: String) {
+        let deleteQuery = "DROP TABLE IF EXISTS \(name);"
+
+        // 쿼리 실행
+        if sqlite3_exec(self.db, deleteQuery, nil, nil, nil) == SQLITE_OK {
+            print("\(name) 테이블이 삭제되었습니다.")
+        } else {
+            let errorMessage = String(cString: sqlite3_errmsg(db))
+            print("\(name)테이블 삭제 에러: \(errorMessage)")
+        }
+    }
 }

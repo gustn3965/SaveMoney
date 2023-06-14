@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("AppDelegate didFinishLaunchingWithOptions");
         DataStore
         
-        DataStore.migrationNTSpend()
-        DataStore.migrationNTCategory()
+//        DataStore.migrationNTSpend()
+//        DataStore.migrationNTCategory()
+        DataStore.removeOldNTSpendTable()
+        DataStore.removeOldNTCategoryTable()
         
         
         // Override point for customization after application launch.

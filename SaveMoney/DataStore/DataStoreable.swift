@@ -25,5 +25,7 @@ protocol DataStoreable {
     
     func migrationNTSpend()
     func migrationNTCategory()
+    func removeOldNTSpendTable()
+    func removeOldNTCategoryTable()
 }
 

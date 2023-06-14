@@ -81,7 +81,7 @@ class DayListViewController: UIViewController {
             self.expectedSpendlabel.text = currentNtMonth.expectedSpend.commaString()
             self.leftMoneyLabel.text = plusString + leftMoney.commaString()
             self.leftMoneyLabel.textColor = leftMoney >= 0 ? .systemBlue : .systemRed
-            
+            self.everyExpectedSpendLabel.textColor = .orange
             self.everyExpectedSpendLabel.text = currentNtMonth.everyExpectedSpend.commaString()
             
             
