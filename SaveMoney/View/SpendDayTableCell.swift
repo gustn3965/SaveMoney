@@ -343,19 +343,18 @@ class SpendDayTableCell: UITableViewCell {
     private func updateDayLabel(_ dateString: String) {
         let date = Date.dateFrom(day: self.day, month: ntMonth.month, year: ntMonth.year)
         let weekDay: WeekDay = date.weekDay
-        let text: String = dateString + " (\(weekDay.name))"
+        let text: String = "(\(weekDay.name)) \(dateString)"
         
         if (date.isToday) {
             self.todayIconView.isHidden = false
         } else {
             self.todayIconView.isHidden = true
         }
-        
-        var dayColor: UIColor = .label
+
         let weekDayColor: UIColor = weekDay.isSuday ? .systemRed : weekDay.isSaturday ? .systemBlue : .label
         let mutableAttr = NSMutableAttributedString(string: text)
-        mutableAttr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.label, range: NSMakeRange(0, dateString.count))
-        mutableAttr.addAttribute(NSAttributedString.Key.foregroundColor, value: weekDayColor, range: NSMakeRange(dateString.count, text.count-dateString.count))
+        mutableAttr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.label, range: NSMakeRange(text.count-dateString.count, dateString.count))
+        mutableAttr.addAttribute(NSAttributedString.Key.foregroundColor, value: weekDayColor, range: NSMakeRange(0, text.count-dateString.count))
         self.dayLabel.attributedText = mutableAttr
     }
 }

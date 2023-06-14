@@ -17,6 +17,7 @@ class DayListViewController: UIViewController {
     @IBOutlet weak var expectedSpendlabel: UILabel!
     @IBOutlet weak var allMonthExpectedSpendLabel: UILabel!
     @IBOutlet weak var everyExpectedSpendLabel: UILabel!
+    @IBOutlet weak var totalLeftMoneyLabel: UILabel!
     
     var monthYearPickerView: MonthYearPickerView = MonthYearPickerView()
     
@@ -50,8 +51,10 @@ class DayListViewController: UIViewController {
             
             self.allMonthExpectedSpendLabel.textColor = .systemOrange
             var totalPrice: Int = 0
+            var totalLeftMoney: Int = 0
             for month in allNtMonth {
                 totalPrice += month.expectedSpend
+                totalLeftMoney += month.leftMoney
                 let customAction: UIAction = UIAction(title: "\(month.groupName)",
                                                 image: nil,
                                                 identifier: UIAction.Identifier(rawValue: "\(month.id)"),
@@ -63,7 +66,8 @@ class DayListViewController: UIViewController {
                 childrenMenu.append(customAction)
             }
             self.allMonthExpectedSpendLabel.text = totalPrice.commaString()
-            
+            self.totalLeftMoneyLabel.text = totalLeftMoney.commaString()
+            self.totalLeftMoneyLabel.textColor = totalLeftMoney >= 0 ? .systemBlue : .systemRed
             
             let addAction: UIAction = UIAction(title: "예상 지출 그룹 추가", image: nil, identifier: UIAction.Identifier(rawValue: "add"), discoverabilityTitle: nil, attributes: .destructive, state: .off) { action in
                 self.clickNtMonth(action)
