@@ -68,7 +68,7 @@ class AddSpendViewController: UIViewController {
     }
     
     func fetchCategory() {
-        if let categorys: [NTSpendCategory] = dataStore.fetch(NTSpendCategory.self, whereQuery: "id > 0 ORDER BY id DESC") as? [NTSpendCategory] {
+        if let categorys: [NTSpendCategory] = DataStore.fetch(NTSpendCategory.self, whereQuery: "id > 0 ORDER BY id DESC") as? [NTSpendCategory] {
             self.categorys = categorys
             self.tableView.reloadData()
         }

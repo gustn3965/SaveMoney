@@ -13,6 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        print("AppDelegate didFinishLaunchingWithOptions");
+        DataStore
+        
+        DataStore.migrationNTSpend()
+        DataStore.migrationNTCategory()
+        
+        
         // Override point for customization after application launch.
         return true
     }

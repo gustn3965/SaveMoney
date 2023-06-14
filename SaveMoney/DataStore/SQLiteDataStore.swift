@@ -8,22 +8,22 @@
 import Foundation
 import SQLite3
 
-class SQLiteDataStore: DataStore {
+class SQLiteDataStore: DataStoreable {
     
     private var db: OpaquePointer?
     private var cache: [String: [Int: NTObject]] = [:]
     
-    static var shared: DataStore = SQLiteDataStore()
+    static var shared: DataStoreable = SQLiteDataStore()
     
     private init () {
         if (self.openDB()) {
             
         } else {
-            
+            fatalError("")
         }
     }
     
-    func object(_ classType: NTObject.Type, id: Int) -> NTObject? {
+    private func object(_ classType: NTObject.Type, id: Int) -> NTObject? {
         let typeString: String = String(describing: classType)
         if let object = cache[typeString]?[id] {
             return object
@@ -32,9 +32,19 @@ class SQLiteDataStore: DataStore {
         }
     }
     
-    func fetch(_ classType: NTObject.Type, whereQuery: String) -> [NTObject]? {
+    func fetchAll(_ classType: NTObject.Type) -> [NTObject]? {
+        return self.fetch(classType, whereQuery: "")
+    }
+    
+    func fetch(_ classType: NTObject.Type, whereQuery: String? = nil) -> [NTObject]? {
         let typeString: String = String(describing: classType)
-        let query: String = "select * from \(typeString) where " + whereQuery
+        
+        var whereQr = ""
+        if let whereQuery = whereQuery {
+            whereQr = whereQuery
+        }
+        
+        let query: String = String(format: "select * from \(typeString) %@" , whereQr.isEmpty ? "" : "where \(whereQr)")
         var result: OpaquePointer? = nil
         
         if (sqlite3_prepare(self.db, query, -1, &result, nil)) != SQLITE_OK {
@@ -185,9 +195,6 @@ class SQLiteDataStore: DataStore {
         }
     }
     
-    
-    // https://youtu.be/Bvgj-QxTBwE
-
     func createSaveMoneyFolder() {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filePath = documentsURL.appendingPathComponent("saveMoney")
@@ -228,6 +235,7 @@ class SQLiteDataStore: DataStore {
         }
     }
     
+    // MARK: - Query Table
     private func queryForCreateTable() -> [String] {
         return [self.queryForCreateNTMonth(),
                 self.queryForCreateNTSpend(),
@@ -286,3 +294,43 @@ class SQLiteDataStore: DataStore {
 }
 
 
+// MARK: - Tempt Migration
+extension SQLiteDataStore {
+    func migrationNTSpend() {
+        print()
+        print("migration....NTSpend.... TO NTSpendDay")
+        print(self.fetchAll(NTSpendDay.self)?.count)
+        let spendDays: [NTSpend] = self.fetchAll(NTSpend.self) as! [NTSpend]
+        print("\(spendDays.count) will migration....")
+        for spendDay in spendDays {
+            if let _ = NTSpendDay.create(id: spendDay.id, date: spendDay.date, spend: spendDay.spend, monthId: spendDay.monthId, groupId: spendDay.groupId, categoryId: spendDay.categoryId) {
+                
+            } else {
+                print("🚨FAILED migration....TO NTSpendDay")
+                return
+            }
+        }
+        
+        print("🎉Success migration....TO NTSpendDay")
+        print(self.fetchAll(NTSpendDay.self)?.count)
+    }
+    
+    func migrationNTCategory() {
+        print()
+        print("migration....NTCategory.... TO NTSpendCategory")
+        print(self.fetchAll(NTSpendCategory.self)?.count)
+        let categorys: [NTCategory] = self.fetchAll(NTCategory.self) as! [NTCategory]
+        print("\(categorys.count) will migration....")
+        for category in categorys {
+            if let _ = NTSpendCategory.create(id: category.id, name: category.name) {
+                
+            } else {
+                print("🚨FAILED migration....TO NTSpendCategory")
+                return
+            }
+        }
+        
+        print("🎉Success migration....TO NTSpendCategory")
+        print(self.fetchAll(NTSpendCategory.self)?.count)
+    }
+}

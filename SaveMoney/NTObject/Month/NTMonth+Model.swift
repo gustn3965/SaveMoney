@@ -9,7 +9,7 @@ import Foundation
 
 extension NTMonth {
     var group: NTGroup? {
-        guard let group: NTGroup = dataStore.fetch(NTGroup.self, whereQuery: String(format:"id == %@", String(self.groupId)))?.first as? NTGroup else {
+        guard let group: NTGroup = DataStore.fetch(NTGroup.self, whereQuery: String(format:"id == %@", String(self.groupId)))?.first as? NTGroup else {
             return nil
         }
         return group
@@ -21,7 +21,7 @@ extension NTMonth {
     
     func spendList(atDay day: Int) -> [NTSpendDay] {
         var list: [NTSpendDay] = []
-        for spend in self.spendList() {
+        for spend in self.existedSpendList() {
             let dayDate: Date = Date(timeIntervalSince1970: TimeInterval(spend.date))
             if dayDate.day == day {
                 list.append(spend)
@@ -30,11 +30,34 @@ extension NTMonth {
         return list
     }
     
-    func spendList() -> [NTSpendDay] {
-        guard let ntSpends: [NTSpendDay] = dataStore.fetch(NTSpendDay.self, whereQuery: String(format: "monthId == %@ ORDER BY id", String(self.id))) as? [NTSpendDay] else {
+    func existedSpendList() -> [NTSpendDay] {
+        guard let ntSpends: [NTSpendDay] = DataStore.fetch(NTSpendDay.self, whereQuery: String(format: "monthId == %@ ORDER BY id", String(self.id))) as? [NTSpendDay] else {
             return []
         }
         return ntSpends
+    }
+    
+    
+    
+    func spendList(atDay day: Int, in existedSpendList:[NTSpendDay]) -> [NTSpendDay] {
+        var list: [NTSpendDay] = []
+        for spend in self.existedSpendList() {
+            let dayDate: Date = Date(timeIntervalSince1970: TimeInterval(spend.date))
+            if dayDate.day == day {
+                list.append(spend)
+            }
+        }
+        return list
+    }
+    
+    func monthSpendList() -> [[NTSpendDay]] {
+        var array: [[NTSpendDay]] = Array(repeating: [], count: self.dateDate.countOfDay)
+        let existedSpendList: [NTSpendDay] = self.existedSpendList()
+        
+        for day in 1...array.count {
+            array[day-1] = self.spendList(atDay: day, in: existedSpendList)
+        }
+        return array
     }
     
 }

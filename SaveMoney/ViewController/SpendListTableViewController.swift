@@ -36,7 +36,7 @@ class SpendListTableViewController: UIViewController {
         guard let ntMonth = self.ntMonth else {
             return
         }
-        guard let spendList: [NTSpendDay] = dataStore.fetch(NTSpendDay.self, whereQuery: "monthId == \(ntMonth.id) ORDER BY categoryId") as? [NTSpendDay], spendList.count > 0 else {
+        guard let spendList: [NTSpendDay] = DataStore.fetch(NTSpendDay.self, whereQuery: "monthId == \(ntMonth.id) ORDER BY categoryId") as? [NTSpendDay], spendList.count > 0 else {
             return
         }
         self.calculate(spendList)

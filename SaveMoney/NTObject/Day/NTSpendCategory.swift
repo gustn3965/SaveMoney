@@ -19,7 +19,7 @@ class NTSpendCategory: NTObject, NTSpendCategoryable {
     var id: Int
     var name: String {
         didSet {
-            if dataStore.updateObject(Self.self, columsName: ["name"], datas: [self.name], id: self.id) == false {
+            if DataStore.updateObject(Self.self, columsName: ["name"], datas: [self.name], id: self.id) == false {
                 self.name = oldValue
             }
         }
@@ -36,7 +36,40 @@ class NTSpendCategory: NTObject, NTSpendCategoryable {
         let columsName: [String] = ["id", "name"]
         let datas: [Any] = [id, name]
         
-        return dataStore.createObject(Self.self, columsName: columsName, datas: datas)
+        return DataStore.createObject(Self.self, columsName: columsName, datas: datas)
+    }
+    
+    override var debugDescription: String {
+        let debugString: String = String(format: "%@\n  -id: %@\n  -name: %@\n",  String(describing: self), String(id), name)
+        return debugString
+    }
+    
+}
+
+// 이전 모델 
+class NTCategory: NTObject, NTSpendCategoryable {
+    // MARK: Property
+    var id: Int
+    var name: String {
+        didSet {
+            if DataStore.updateObject(Self.self, columsName: ["name"], datas: [self.name], id: self.id) == false {
+                self.name = oldValue
+            }
+        }
+    }
+
+    // MARK: Init
+    required init(_ dictionary: [String : Any]) {
+        self.id = dictionary["id"] as! Int
+        self.name = dictionary["name"] as! String
+        super.init(dictionary)
+    }
+    
+    static func create(id: Int, name: String) -> NTObject? {
+        let columsName: [String] = ["id", "name"]
+        let datas: [Any] = [id, name]
+        
+        return DataStore.createObject(Self.self, columsName: columsName, datas: datas)
     }
     
     override var debugDescription: String {

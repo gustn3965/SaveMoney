@@ -24,35 +24,35 @@ class NTMonth: NTObject, NTMonthleable {
     var date: Int
     var groupId: Int {
         didSet {
-            if dataStore.updateObject(Self.self, columsName: ["groupId"], datas: [self.groupId], id: self.id) == false {
+            if DataStore.updateObject(Self.self, columsName: ["groupId"], datas: [self.groupId], id: self.id) == false {
                 self.groupId = oldValue
             }
         }
     }
     var spendType: Int {
         didSet {
-            if dataStore.updateObject(Self.self, columsName: ["spendType"], datas: [self.spendType], id: self.id) == false {
+            if DataStore.updateObject(Self.self, columsName: ["spendType"], datas: [self.spendType], id: self.id) == false {
                 self.spendType = oldValue
             }
         }
     }
     var expectedSpend: Int {
         didSet {
-            if dataStore.updateObject(Self.self, columsName: ["expectedSpend"], datas: [self.expectedSpend], id: self.id) == false {
+            if DataStore.updateObject(Self.self, columsName: ["expectedSpend"], datas: [self.expectedSpend], id: self.id) == false {
                 self.expectedSpend = oldValue
             }
         }
     }
     var everyExpectedSpend: Int {
         didSet {
-            if dataStore.updateObject(Self.self, columsName: ["everyExpectedSpend"], datas: [self.everyExpectedSpend], id: self.id) == false {
+            if DataStore.updateObject(Self.self, columsName: ["everyExpectedSpend"], datas: [self.everyExpectedSpend], id: self.id) == false {
                 self.everyExpectedSpend = oldValue
             }
         }
     }
     var additionalMoney: Int {
         didSet {
-            if dataStore.updateObject(Self.self, columsName: ["additionalMoney"], datas: [self.additionalMoney], id: self.id) == false {
+            if DataStore.updateObject(Self.self, columsName: ["additionalMoney"], datas: [self.additionalMoney], id: self.id) == false {
                 self.additionalMoney = oldValue
             }
         }
@@ -77,7 +77,7 @@ class NTMonth: NTObject, NTMonthleable {
         let columsName: [String] = ["id", "date", "groupId", "spendType", "expectedSpend", "everyExpectedSpend", "additionalMoney"]
         let datas: [Any] = [id, date, groupId, spendType, expectedSpend, everyExpectedSpend, additionalMoney]
         
-        return dataStore.createObject(Self.self, columsName: columsName, datas: datas)
+        return DataStore.createObject(Self.self, columsName: columsName, datas: datas)
     }
     
     override var debugDescription: String {
@@ -88,7 +88,7 @@ class NTMonth: NTObject, NTMonthleable {
     var leftMoney: Int {  
         if self.everyExpectedSpend == 0 {
             var spendMoney: Int = 0
-            self.spendList().forEach {
+            self.existedSpendList().forEach {
                 spendMoney += $0.spend
             }
             return self.expectedSpend - spendMoney

@@ -22,6 +22,7 @@ class Coordinator {
     var currentViewController: ViewControllerUpdatable?
     
     func start() {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let dayList: DayListViewController = storyboard.instantiateViewController(identifier: "DayListViewController") as? DayListViewController else { return }
         self.window?.rootViewController = dayList

@@ -19,7 +19,7 @@ class NTGroup: NTObject, NTGroupable {
     var id: Int
     var name: String {
         didSet {
-            if dataStore.updateObject(Self.self, columsName: ["name"], datas: [self.name], id: self.id) == false {
+            if DataStore.updateObject(Self.self, columsName: ["name"], datas: [self.name], id: self.id) == false {
                 self.name = oldValue
             }
         }
@@ -36,7 +36,7 @@ class NTGroup: NTObject, NTGroupable {
         let columsName: [String] = ["id", "name"]
         let datas: [Any] = [id, name]
         
-        return dataStore.createObject(Self.self, columsName: columsName, datas: datas)
+        return DataStore.createObject(Self.self, columsName: columsName, datas: datas)
     }
     
     override var debugDescription: String {

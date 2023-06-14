@@ -63,7 +63,7 @@ class AddMonthViewController: UIViewController {
     }
     
     func fetchGroup() {
-        if let groups: [NTGroup] = dataStore.fetch(NTGroup.self, whereQuery: "id > 0 ORDER BY id DESC") as? [NTGroup] {
+        if let groups: [NTGroup] = DataStore.fetch(NTGroup.self, whereQuery: "id > 0 ORDER BY id DESC") as? [NTGroup] {
             self.groups = groups
             self.tableView.reloadData()
         }

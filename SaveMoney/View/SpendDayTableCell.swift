@@ -45,7 +45,7 @@ class SpendDayTableLabel: UIView {
         let stackView: UIStackView = UIStackView(arrangedSubviews: [descriptionLabel, priceLabel])
         stackView.alignment = .center
         stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(stackView)
@@ -116,11 +116,15 @@ class SpendDayTableCell: UITableViewCell {
     }
     
     func setupView() {
-        let topStackView: UIStackView = UIStackView(arrangedSubviews: [dayLabel, expectedSpendLabel, spendLabel])
+        let spendStackView: UIStackView = UIStackView(arrangedSubviews: [expectedSpendLabel, spendLabel])
+        spendStackView.alignment = .trailing
+        spendStackView.axis = .vertical
+        spendStackView.distribution = .fill
+        let topStackView: UIStackView = UIStackView(arrangedSubviews: [dayLabel, spendStackView])
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
         expectedSpendLabel.translatesAutoresizingMaskIntoConstraints = false
         spendLabel.translatesAutoresizingMaskIntoConstraints = false
-        topStackView.alignment = .leading
+        topStackView.alignment = .center
         topStackView.axis = .horizontal
         topStackView.distribution = .fill
         topStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -146,6 +150,15 @@ class SpendDayTableCell: UITableViewCell {
         self.ntMonth = ntMonth
         self.ntSpendList = ntMonth.spendList(atDay: day)
         
+        self.updateView()
+    }
+    
+    func updateView(_ spendList: [NTSpendDay], ntMonth: NTMonth, atDay day: Int) {
+        self.day = day
+        self.ntSpendList = spendList
+        self.ntMonth = ntMonth
+        
+        self.updateDate("\(self.ntMonth.month)/\(self.day)")
         self.updateView()
     }
     

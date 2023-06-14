@@ -9,8 +9,8 @@ import Foundation
 
 var DBVERSION = 1;
 
-protocol DataStore {
-    static var shared: DataStore { get set}
+protocol DataStoreable {
+    static var shared: DataStoreable { get set}
     
     func openDB() -> Bool
     
@@ -18,6 +18,12 @@ protocol DataStore {
     
     func updateObject(_ classType: NTObject.Type, columsName: [String], datas: [Any], id: Int) -> Bool
     
-    func fetch(_ classType: NTObject.Type, whereQuery: String) -> [NTObject]?
+    func fetch(_ classType: NTObject.Type, whereQuery: String?) -> [NTObject]?
+    
+    func fetchAll(_ classType: NTObject.Type) -> [NTObject]?
+    
+    
+    func migrationNTSpend()
+    func migrationNTCategory()
 }
 

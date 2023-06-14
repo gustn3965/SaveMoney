@@ -8,7 +8,7 @@
 import UIKit
 import SQLite3
 
-let dataStore: DataStore = SQLiteDataStore.shared;
+let DataStore: DataStoreable = SQLiteDataStore.shared;
 
 class ViewController: UIViewController {
 

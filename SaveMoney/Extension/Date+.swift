@@ -58,7 +58,6 @@ extension Date {
     
     var day: Int {
         let calendar = Calendar.current
-        let aaa = calendar.dateComponents([.day], from: self)
         return calendar.dateComponents([.day], from: self).day!
     }
     var month: Int {
