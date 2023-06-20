@@ -18,6 +18,7 @@ class DayListViewController: UIViewController {
     @IBOutlet weak var allMonthExpectedSpendLabel: UILabel!
     @IBOutlet weak var everyExpectedSpendLabel: UILabel!
     @IBOutlet weak var recommendSpendLabel: UILabel!
+    @IBOutlet weak var recommendDiffLabel: UILabel! // 차이금액
     @IBOutlet weak var totalLeftMoneyLabel: UILabel!
     
     var monthYearPickerView: MonthYearPickerView = MonthYearPickerView()
@@ -97,7 +98,9 @@ class DayListViewController: UIViewController {
             self.everyExpectedSpendLabel.textColor = .orange
             self.everyExpectedSpendLabel.text = currentNtMonth.everyExpectedSpend.commaString()
             self.recommendSpendLabel.text = currentNtMonth.recommendSpend.commaString()
-//            self.recommendSpendLabel.textColor =
+            let diff = (currentNtMonth.recommendSpend - currentNtMonth.everyExpectedSpend)
+            self.recommendDiffLabel.text = "(" + (diff < 0 ? "" : "+") + diff.commaString() + ")"
+            self.recommendDiffLabel.textColor = diff >= 0 ? .systemBlue : .systemRed
             
             
             self.groupPullDownButton.setTitle(currentNtMonth.groupName, for: .normal)
