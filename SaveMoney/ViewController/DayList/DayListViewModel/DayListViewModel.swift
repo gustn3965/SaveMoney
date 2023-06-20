@@ -63,11 +63,13 @@ class DayListViewModel: ObservableObject {
     }
     
     func addSpend() {
-        self.monthSpendDayList = self.currentNtMonth?.monthSpendList() ?? []
-        
         let beforeCurrentNtMonth = self.currentNtMonth
-        self.currentNtMonth = nil
+        
+        self.fetchNtMonths(at: self.dateMonth)
+        
         self.currentNtMonth = beforeCurrentNtMonth
+        
+        self.monthSpendDayList = self.currentNtMonth?.monthSpendList() ?? []
     }
     
 }

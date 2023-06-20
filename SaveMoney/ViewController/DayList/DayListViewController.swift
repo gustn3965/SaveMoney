@@ -17,6 +17,7 @@ class DayListViewController: UIViewController {
     @IBOutlet weak var expectedSpendlabel: UILabel!
     @IBOutlet weak var allMonthExpectedSpendLabel: UILabel!
     @IBOutlet weak var everyExpectedSpendLabel: UILabel!
+    @IBOutlet weak var recommendSpendLabel: UILabel!
     @IBOutlet weak var totalLeftMoneyLabel: UILabel!
     
     var monthYearPickerView: MonthYearPickerView = MonthYearPickerView()
