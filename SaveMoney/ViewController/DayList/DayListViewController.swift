@@ -68,13 +68,14 @@ class DayListViewController: UIViewController {
             }
             self.allMonthExpectedSpendLabel.text = totalPrice.commaString()
             self.totalLeftMoneyLabel.text = totalLeftMoney.commaString()
-            self.totalLeftMoneyLabel.textColor = totalLeftMoney >= 0 ? .systemBlue : .systemRed
+            self.totalLeftMoneyLabel.textColor = totalLeftMoney >= 0 ? .systemCyan : .systemRed
             
             let addAction: UIAction = UIAction(title: "예상 지출 그룹 추가", image: nil, identifier: UIAction.Identifier(rawValue: "add"), discoverabilityTitle: nil, attributes: .destructive, state: .off) { action in
                 self.clickNtMonth(action)
             }
             childrenMenu.append(addAction)
             self.groupPullDownButton?.menu = UIMenu(title: "", subtitle: nil, image: nil, identifier: nil, options: .displayInline, children: childrenMenu)
+            
         }).store(in: &disposableBag)
         
         self.viewModel.$currentNtMonth.sink { ntMonth in
@@ -95,10 +96,13 @@ class DayListViewController: UIViewController {
             self.leftMoneyLabel.textColor = leftMoney >= 0 ? .systemBlue : .systemRed
             self.everyExpectedSpendLabel.textColor = .orange
             self.everyExpectedSpendLabel.text = currentNtMonth.everyExpectedSpend.commaString()
+            self.recommendSpendLabel.text = currentNtMonth.recommendSpend.commaString()
+//            self.recommendSpendLabel.textColor =
             
             
             self.groupPullDownButton.setTitle(currentNtMonth.groupName, for: .normal)
         }.store(in: &disposableBag)
+        
         
         self.viewModel.$monthSpendDayList.sink(receiveValue: { monthSpendDayList in
             self.data = monthSpendDayList

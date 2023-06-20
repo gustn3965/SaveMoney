@@ -85,8 +85,8 @@ class NTMonth: NTObject, NTMonthleable {
         return debugString
     }
     
-    var leftMoney: Int {  
-        if self.everyExpectedSpend == 0 {
+    var leftMoney: Int {  // 매일소비예상금액은 뺀 금액
+        if self.everyExpectedSpend == 0 { // 0인 값은 추후에 안쓸예정. ( 코드없애야함, 매일,매주,등 쓸 금액이 정해져있어야함.  )
             var spendMoney: Int = 0
             self.existedSpendList().forEach {
                 spendMoney += $0.spend
@@ -109,6 +109,27 @@ class NTMonth: NTObject, NTMonthleable {
             }
             return money
         }
+    }
+    
+    var recommendSpend: Int {
+        // (소비예상금액 - 총 지출한 금액) / 남은 매일소비예상날짜개수
+        
+        var spendMoney = 0
+        var notSpendDay = self.dateDate.countOfDay
+        for day in 1...self.dateDate.countOfDay {
+            var isSpend: Bool = false
+            self.spendList(atDay: day).forEach {
+                spendMoney += $0.spend
+                isSpend = true
+            }
+            if isSpend {
+                notSpendDay -= 1
+            }
+        }
+        
+        let recommendSpend = (self.expectedSpend - spendMoney) / notSpendDay
+        print(recommendSpend)
+        return recommendSpend
     }
     
     var dateDate: Date {
