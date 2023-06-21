@@ -127,6 +127,10 @@ class NTMonth: NTObject, NTMonthleable {
             }
         }
         
+        if (notSpendDay == 0) {
+            notSpendDay = 1 
+        }
+        
         let recommendSpend = (self.expectedSpend - spendMoney) / notSpendDay
         print(recommendSpend)
         return recommendSpend
