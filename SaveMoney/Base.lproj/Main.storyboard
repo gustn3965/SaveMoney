@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -151,6 +152,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zX-re-Qfn">
+                                <rect key="frame" x="360" y="153" width="40" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="wLg-z3-y41"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="α"/>
+                                <connections>
+                                    <action selector="showReportViewController:" destination="jfG-rC-jnT" eventType="touchUpInside" id="Tvn-Uz-H00"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kBN-Ap-mBy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -175,6 +187,7 @@
                             <constraint firstItem="K9c-Yi-Yeu" firstAttribute="centerY" secondItem="yZg-jW-1sy" secondAttribute="centerY" id="Egb-b5-u1c"/>
                             <constraint firstItem="SDJ-2T-Lj3" firstAttribute="top" secondItem="o0A-Je-fd4" secondAttribute="bottom" constant="5" id="FeM-VP-ZFM"/>
                             <constraint firstItem="1LL-El-Izh" firstAttribute="top" secondItem="58I-Js-uL0" secondAttribute="top" id="I6y-fl-NpX"/>
+                            <constraint firstItem="4zX-re-Qfn" firstAttribute="top" secondItem="kBN-Ap-mBy" secondAttribute="top" constant="105" id="IO1-hF-APC"/>
                             <constraint firstItem="mKT-lP-cGq" firstAttribute="leading" secondItem="1F1-Cj-Fof" secondAttribute="trailing" constant="15" id="IXi-Bk-D7k"/>
                             <constraint firstItem="hvc-FH-1q4" firstAttribute="centerY" secondItem="ds9-Kh-x9s" secondAttribute="centerY" id="PNA-eK-7B8"/>
                             <constraint firstItem="kBN-Ap-mBy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c5w-yq-Ve4" secondAttribute="trailing" constant="20" id="Ppi-aN-wKY"/>
@@ -201,6 +214,7 @@
                             <constraint firstItem="c5w-yq-Ve4" firstAttribute="leading" secondItem="RG8-nV-Yfp" secondAttribute="trailing" constant="10" id="pLh-r4-yet"/>
                             <constraint firstItem="1LL-El-Izh" firstAttribute="leading" secondItem="kBN-Ap-mBy" secondAttribute="leading" id="rhe-nF-WkY"/>
                             <constraint firstItem="qRX-62-XF8" firstAttribute="centerY" secondItem="Bq2-Qj-0sc" secondAttribute="centerY" id="s5b-KL-j7d"/>
+                            <constraint firstItem="kBN-Ap-mBy" firstAttribute="trailing" secondItem="4zX-re-Qfn" secondAttribute="trailing" constant="14" id="soI-nZ-TtG"/>
                             <constraint firstItem="uq2-zb-dyX" firstAttribute="leading" secondItem="4rE-3M-OfO" secondAttribute="trailing" constant="10" id="xz7-5B-B9u"/>
                             <constraint firstItem="s3u-Fd-qES" firstAttribute="leading" secondItem="kBN-Ap-mBy" secondAttribute="leading" id="zg2-C1-MWq"/>
                         </constraints>
@@ -221,6 +235,125 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNu-ae-zWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="886.95652173913049" y="116.51785714285714"/>
+        </scene>
+        <!--Report View Controller-->
+        <scene sceneID="ICK-mF-SPu">
+            <objects>
+                <viewController storyboardIdentifier="ReportViewController" id="XWS-CY-8n8" customClass="ReportViewController" customModule="SaveMoney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ta9-ew-Ao3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ELI-sb-948">
+                                <rect key="frame" x="0.0" y="193.5" width="414" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="kCe-xb-oPj"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBN-BZ-3ve">
+                                <rect key="frame" x="164.5" y="100.5" width="85" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Open AI"/>
+                                <connections>
+                                    <action selector="clickAI:" destination="XWS-CY-8n8" eventType="touchUpInside" id="7sc-3h-f44"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="...." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9AS-Ol-6ga">
+                                <rect key="frame" x="0.0" y="352.5" width="414" height="509.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIw-sZ-vzJ">
+                                <rect key="frame" x="141" y="58" width="132" height="34.5"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="hide keyboard"/>
+                                <connections>
+                                    <action selector="clickAI:" destination="XWS-CY-8n8" eventType="touchUpInside" id="LXx-VQ-6Xa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="chatGPT Answer...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0u0-tE-G4K">
+                                <rect key="frame" x="14" y="323.5" width="228" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFu-Va-2c6">
+                                <rect key="frame" x="14" y="165.5" width="42" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999999999999996" maximumValue="2" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="qCb-Fv-x7o">
+                                <rect key="frame" x="320" y="144" width="94" height="32"/>
+                                <connections>
+                                    <action selector="clickStepper:" destination="XWS-CY-8n8" eventType="valueChanged" id="cII-1H-BxO"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-Sn-BVT">
+                                <rect key="frame" x="271" y="149.5" width="23" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zD2-2n-L5y">
+                                <rect key="frame" x="210" y="149.5" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irs-1A-bUo">
+                                <rect key="frame" x="280" y="101" width="47" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="clickRefresh:" destination="XWS-CY-8n8" eventType="touchUpInside" id="Ssa-MS-RaI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lp5-9k-g4l"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lp5-9k-g4l" firstAttribute="trailing" secondItem="qCb-Fv-x7o" secondAttribute="trailing" id="1cJ-mT-2Vk"/>
+                            <constraint firstItem="Fuv-Sn-BVT" firstAttribute="leading" secondItem="zD2-2n-L5y" secondAttribute="trailing" constant="21" id="3Vw-cS-hRE"/>
+                            <constraint firstItem="ELI-sb-948" firstAttribute="top" secondItem="iFu-Va-2c6" secondAttribute="bottom" constant="-6" id="APe-1M-cqq"/>
+                            <constraint firstItem="0u0-tE-G4K" firstAttribute="leading" secondItem="lp5-9k-g4l" secondAttribute="leading" constant="14" id="Bwq-Ry-ObN"/>
+                            <constraint firstItem="9AS-Ol-6ga" firstAttribute="top" secondItem="0u0-tE-G4K" secondAttribute="bottom" constant="-5" id="C6g-be-T9U"/>
+                            <constraint firstItem="lp5-9k-g4l" firstAttribute="bottom" secondItem="9AS-Ol-6ga" secondAttribute="bottom" id="Cou-v3-RGo"/>
+                            <constraint firstItem="iFu-Va-2c6" firstAttribute="top" secondItem="vBN-BZ-3ve" secondAttribute="bottom" constant="30" id="HkX-OC-YY7"/>
+                            <constraint firstItem="IIw-sZ-vzJ" firstAttribute="centerX" secondItem="lp5-9k-g4l" secondAttribute="centerX" id="IRd-X5-jcy"/>
+                            <constraint firstItem="vBN-BZ-3ve" firstAttribute="centerX" secondItem="lp5-9k-g4l" secondAttribute="centerX" id="Lp7-iA-4md"/>
+                            <constraint firstItem="lp5-9k-g4l" firstAttribute="top" secondItem="IIw-sZ-vzJ" secondAttribute="top" constant="-10" id="QjC-AH-eEM"/>
+                            <constraint firstItem="irs-1A-bUo" firstAttribute="leading" secondItem="vBN-BZ-3ve" secondAttribute="trailing" constant="30.5" id="RtD-5m-i9T"/>
+                            <constraint firstItem="qCb-Fv-x7o" firstAttribute="top" secondItem="vBN-BZ-3ve" secondAttribute="bottom" constant="8.5" id="TCH-S6-E6K"/>
+                            <constraint firstItem="iFu-Va-2c6" firstAttribute="leading" secondItem="lp5-9k-g4l" secondAttribute="leading" constant="14" id="Xia-zv-F3p"/>
+                            <constraint firstItem="0u0-tE-G4K" firstAttribute="top" secondItem="ELI-sb-948" secondAttribute="bottom" constant="30" id="ZT3-dN-cyv"/>
+                            <constraint firstItem="zD2-2n-L5y" firstAttribute="centerY" secondItem="qCb-Fv-x7o" secondAttribute="centerY" id="aSR-r7-KDa"/>
+                            <constraint firstItem="ELI-sb-948" firstAttribute="leading" secondItem="lp5-9k-g4l" secondAttribute="leading" id="cDp-Ik-yX6"/>
+                            <constraint firstItem="lp5-9k-g4l" firstAttribute="trailing" secondItem="9AS-Ol-6ga" secondAttribute="trailing" id="dLR-cd-ofi"/>
+                            <constraint firstItem="9AS-Ol-6ga" firstAttribute="leading" secondItem="lp5-9k-g4l" secondAttribute="leading" id="epz-Dl-ekB"/>
+                            <constraint firstItem="lp5-9k-g4l" firstAttribute="trailing" secondItem="ELI-sb-948" secondAttribute="trailing" id="fik-9s-Ztg"/>
+                            <constraint firstItem="irs-1A-bUo" firstAttribute="centerY" secondItem="vBN-BZ-3ve" secondAttribute="centerY" id="m2O-7O-bRC"/>
+                            <constraint firstItem="Fuv-Sn-BVT" firstAttribute="centerY" secondItem="qCb-Fv-x7o" secondAttribute="centerY" id="nHi-YN-FnR"/>
+                            <constraint firstItem="vBN-BZ-3ve" firstAttribute="top" secondItem="IIw-sZ-vzJ" secondAttribute="bottom" constant="8" symbolic="YES" id="rL2-HY-Aam"/>
+                            <constraint firstItem="qCb-Fv-x7o" firstAttribute="leading" secondItem="Fuv-Sn-BVT" secondAttribute="trailing" constant="26" id="ua8-qJ-0x8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gptTextView" destination="9AS-Ol-6ga" id="DKk-dU-8gs"/>
+                        <outlet property="stepper" destination="qCb-Fv-x7o" id="wqZ-4k-bhv"/>
+                        <outlet property="tempValueLabel" destination="Fuv-Sn-BVT" id="FYR-y7-6z4"/>
+                        <outlet property="textView" destination="ELI-sb-948" id="8iy-52-Joh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rh6-tf-zOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1608.6956521739132" y="805.58035714285711"/>
         </scene>
         <!--Spend List Table View Controller-->
         <scene sceneID="QB5-e6-J4j">
@@ -547,6 +680,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

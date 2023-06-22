@@ -14,11 +14,15 @@
 		3F3011B8291FD5B400613D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F3011B7291FD5B400613D2D /* Assets.xcassets */; };
 		3F3011BB291FD5B400613D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3011B9291FD5B400613D2D /* LaunchScreen.storyboard */; };
 		3F3011C3291FDE1000613D2D /* DataStoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3011C2291FDE1000613D2D /* DataStoreable.swift */; };
+		3F3C36B42A41E1A3004B6057 /* NtMonth+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C36B32A41E1A3004B6057 /* NtMonth+Report.swift */; };
+		3F3C36B62A41E388004B6057 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C36B52A41E388004B6057 /* ReportViewController.swift */; };
 		3F4DF5E52944C07C00092D2C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4DF5E42944C07C00092D2C /* Coordinator.swift */; };
 		3F4DF5E72944C42C00092D2C /* ViewControllerUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4DF5E62944C42C00092D2C /* ViewControllerUpdatable.swift */; };
 		3F563CBB293747D60009E755 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F563CBA293747D60009E755 /* Int+.swift */; };
 		3F90B6252A373BD700674CDD /* NTMonth+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F90B6242A373BD700674CDD /* NTMonth+Model.swift */; };
 		3F90B6282A373D5F00674CDD /* DayListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F90B6272A373D5F00674CDD /* DayListViewModel.swift */; };
+		3FA17D4C2A447F810014CBE0 /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA17D4B2A447F810014CBE0 /* SecretKey.swift */; };
+		3FA17D502A4484D90014CBE0 /* SecretKey.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FA17D4F2A4484D90014CBE0 /* SecretKey.json */; };
 		3FCDE061293DDB0A003583B1 /* SpendListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDE060293DDB0A003583B1 /* SpendListTableViewController.swift */; };
 		3FCDE063293DE25E003583B1 /* SpendListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDE062293DE25E003583B1 /* SpendListTableCell.swift */; };
 		3FDDDF0A29275EAD00ECFCCE /* function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF0929275EAD00ECFCCE /* function.swift */; };
@@ -50,11 +54,15 @@
 		3F3011BA291FD5B400613D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F3011BC291FD5B400613D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F3011C2291FDE1000613D2D /* DataStoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreable.swift; sourceTree = "<group>"; };
+		3F3C36B32A41E1A3004B6057 /* NtMonth+Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NtMonth+Report.swift"; sourceTree = "<group>"; };
+		3F3C36B52A41E388004B6057 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		3F4DF5E42944C07C00092D2C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3F4DF5E62944C42C00092D2C /* ViewControllerUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUpdatable.swift; sourceTree = "<group>"; };
 		3F563CBA293747D60009E755 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		3F90B6242A373BD700674CDD /* NTMonth+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NTMonth+Model.swift"; sourceTree = "<group>"; };
 		3F90B6272A373D5F00674CDD /* DayListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayListViewModel.swift; sourceTree = "<group>"; };
+		3FA17D4B2A447F810014CBE0 /* SecretKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
+		3FA17D4F2A4484D90014CBE0 /* SecretKey.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SecretKey.json; sourceTree = "<group>"; };
 		3FCDE060293DDB0A003583B1 /* SpendListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendListTableViewController.swift; sourceTree = "<group>"; };
 		3FCDE062293DE25E003583B1 /* SpendListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendListTableCell.swift; sourceTree = "<group>"; };
 		3FDDDF0929275EAD00ECFCCE /* function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = function.swift; sourceTree = "<group>"; };
@@ -120,6 +128,8 @@
 				3F3011B7291FD5B400613D2D /* Assets.xcassets */,
 				3F3011B9291FD5B400613D2D /* LaunchScreen.storyboard */,
 				3F3011BC291FD5B400613D2D /* Info.plist */,
+				3FA17D4B2A447F810014CBE0 /* SecretKey.swift */,
+				3FA17D4F2A4484D90014CBE0 /* SecretKey.json */,
 			);
 			path = SaveMoney;
 			sourceTree = "<group>";
@@ -146,6 +156,7 @@
 			children = (
 				3FDDDF142927682100ECFCCE /* NTMonth.swift */,
 				3F90B6242A373BD700674CDD /* NTMonth+Model.swift */,
+				3F3C36B32A41E1A3004B6057 /* NtMonth+Report.swift */,
 				3FDDDF1629276A0600ECFCCE /* NTGroup.swift */,
 			);
 			path = Month;
@@ -221,6 +232,7 @@
 				3FDDDF2F2930A0E800ECFCCE /* AddSpendViewController.swift */,
 				3FCDE060293DDB0A003583B1 /* SpendListTableViewController.swift */,
 				3F4DF5E62944C42C00092D2C /* ViewControllerUpdatable.swift */,
+				3F3C36B52A41E388004B6057 /* ReportViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -297,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F3011BB291FD5B400613D2D /* LaunchScreen.storyboard in Resources */,
+				3FA17D502A4484D90014CBE0 /* SecretKey.json in Resources */,
 				3F3011B8291FD5B400613D2D /* Assets.xcassets in Resources */,
 				3F3011B6291FD5B200613D2D /* Main.storyboard in Resources */,
 			);
@@ -315,8 +328,10 @@
 				3FDDDF2E29309CAE00ECFCCE /* SpendDayTableAddCell.swift in Sources */,
 				3F3011B3291FD5B200613D2D /* ViewController.swift in Sources */,
 				3FDDDF1B29276CBA00ECFCCE /* SQLiteDataStore.swift in Sources */,
+				3FA17D4C2A447F810014CBE0 /* SecretKey.swift in Sources */,
 				3FDDDF152927682100ECFCCE /* NTMonth.swift in Sources */,
 				3F3011C3291FDE1000613D2D /* DataStoreable.swift in Sources */,
+				3F3C36B62A41E388004B6057 /* ReportViewController.swift in Sources */,
 				3F3011AF291FD5B200613D2D /* AppDelegate.swift in Sources */,
 				3F90B6252A373BD700674CDD /* NTMonth+Model.swift in Sources */,
 				3FCDE063293DE25E003583B1 /* SpendListTableCell.swift in Sources */,
@@ -331,6 +346,7 @@
 				3FDDDF1729276A0600ECFCCE /* NTGroup.swift in Sources */,
 				3FDDDF292927BC0E00ECFCCE /* AddMonthViewController.swift in Sources */,
 				3FDDDF302930A0E800ECFCCE /* AddSpendViewController.swift in Sources */,
+				3F3C36B42A41E1A3004B6057 /* NtMonth+Report.swift in Sources */,
 				3FDDDF102927680600ECFCCE /* NTObject.swift in Sources */,
 				3F4DF5E52944C07C00092D2C /* Coordinator.swift in Sources */,
 				3FDDDF0A29275EAD00ECFCCE /* function.swift in Sources */,

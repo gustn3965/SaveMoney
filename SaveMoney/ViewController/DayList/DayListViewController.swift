@@ -179,6 +179,13 @@ class DayListViewController: UIViewController {
         show(addMonth, sender: self)
     }
     
+    @IBAction func showReportViewController(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let addMonth: ReportViewController = storyboard.instantiateViewController(identifier: "ReportViewController") as? ReportViewController else { return }
+        addMonth.ntMonth = self.currentNtMonth
+        show(addMonth, sender: self)
+    }
+    
     
     // MARK: - Coordinate
     func showAddMonthViewController() {

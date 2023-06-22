@@ -79,6 +79,13 @@ extension Date {
         return calendar.isDateInToday(self)
     }
     
+    var yyyymmdd: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        let dateString = dateFormatter.string(from: self)
+        return dateString
+    }
+    
     static func dateFrom(month: Int, year: Int) -> Date {
         let dateComponents = DateComponents(year: year, month: month)
         let calendar = Calendar.current
@@ -96,6 +103,8 @@ extension Date {
     static func currentWeekDay() -> WeekDay {
         return WeekDay(date: Date.now)
     }
+    
+    
     
 //    static func countOfDay(date: Date) -> Int {
 //
