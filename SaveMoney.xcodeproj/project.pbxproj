@@ -42,6 +42,7 @@
 		3FDDDF2E29309CAE00ECFCCE /* SpendDayTableAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF2D29309CAE00ECFCCE /* SpendDayTableAddCell.swift */; };
 		3FDDDF302930A0E800ECFCCE /* AddSpendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF2F2930A0E800ECFCCE /* AddSpendViewController.swift */; };
 		3FDDDF322930A34D00ECFCCE /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDDF312930A34D00ECFCCE /* CategoryTableCell.swift */; };
+		C2979EBB2AF0034200287B9F /* TotalMonthCSVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2979EBA2AF0034200287B9F /* TotalMonthCSVViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		3FDDDF2D29309CAE00ECFCCE /* SpendDayTableAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendDayTableAddCell.swift; sourceTree = "<group>"; };
 		3FDDDF2F2930A0E800ECFCCE /* AddSpendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendViewController.swift; sourceTree = "<group>"; };
 		3FDDDF312930A34D00ECFCCE /* CategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
+		C2979EBA2AF0034200287B9F /* TotalMonthCSVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalMonthCSVViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 				3FCDE060293DDB0A003583B1 /* SpendListTableViewController.swift */,
 				3F4DF5E62944C42C00092D2C /* ViewControllerUpdatable.swift */,
 				3F3C36B52A41E388004B6057 /* ReportViewController.swift */,
+				C2979EBA2AF0034200287B9F /* TotalMonthCSVViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				3FDDDF1929276C1000ECFCCE /* NTSpendCategory.swift in Sources */,
 				3FDDDF232927979D00ECFCCE /* SpendDayTableCell.swift in Sources */,
 				3F3011B1291FD5B200613D2D /* SceneDelegate.swift in Sources */,
+				C2979EBB2AF0034200287B9F /* TotalMonthCSVViewController.swift in Sources */,
 				3FDDDF252927B48200ECFCCE /* UIView+.swift in Sources */,
 				3F563CBB293747D60009E755 /* Int+.swift in Sources */,
 				3FDDDF1729276A0600ECFCCE /* NTGroup.swift in Sources */,

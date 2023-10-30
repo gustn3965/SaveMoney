@@ -39,23 +39,80 @@ class SpendListTableViewController: UIViewController {
         guard let spendList: [NTSpendDay] = DataStore.fetch(NTSpendDay.self, whereQuery: "monthId == \(ntMonth.id) ORDER BY categoryId") as? [NTSpendDay], spendList.count > 0 else {
             return
         }
-        self.calculate(spendList)
+        
+        self.spendListModel = self.makeSpendListModels(spendList)
+        self.tableView.reloadData()
     }
     
-    func calculate(_ spendList: [NTSpendDay]) {
+    func makeSpendListModels(_ spendList: [NTSpendDay]) -> [SpendListModel] {
         let first = spendList.first!
-        self.spendListModel = [SpendListModel(name: first.categoryName, price: first.spend, count: 1)]
+        var models = [SpendListModel(name: first.categoryName, price: first.spend, count: 1)]
         for idx in 1..<spendList.count {
             let next: NTSpendDay = spendList[idx]
-            if next.categoryName == self.spendListModel.last!.name {
-                self.spendListModel[self.spendListModel.count-1].price += next.spend
-                self.spendListModel[self.spendListModel.count-1].count += 1
+            if next.categoryName == models.last!.name {
+                models[models.count-1].price += next.spend
+                models[models.count-1].count += 1
             } else {
-                self.spendListModel.append(SpendListModel(name: next.categoryName, price: next.spend, count: 1))
+                models.append(SpendListModel(name: next.categoryName, price: next.spend, count: 1))
             }
         }
-        self.spendListModel.sort(by: {$0.price > $1.price})
-        self.tableView.reloadData()
+        models.sort(by: {$0.price > $1.price})
+        return models
+    }
+    
+    
+    @IBAction func clickCSV(_ sender: Any) {
+       
+        guard let ntMOnths = self.ntMonth?.group?.allNtMonths else { return }
+        
+        
+        // CSV 데이터 생성
+        var csvData = """
+        
+        """
+        
+        
+        for month in ntMOnths {
+            csvData.append("날짜,총소비금액,지출예정금액,category,totalPrice,totalCount\n")
+            
+            csvData.append("\(month.year)년\(month.month)월,\(month.actualSpendMoney),\(month.expectedSpend),,,\n")
+            
+            guard let spendList: [NTSpendDay] = DataStore.fetch(NTSpendDay.self, whereQuery: "monthId == \(month.id) ORDER BY categoryId") as? [NTSpendDay], spendList.count > 0 else {
+                return
+            }
+            
+            let models = self.makeSpendListModels(spendList)
+            models.forEach {
+                var string = ""
+                string.append(",,," + $0.name + ",")
+                string.append("\($0.price),")
+                string.append("\($0.count),")
+                
+                csvData.append(string + "\n")
+            }
+            
+            csvData.append("\n")
+        }
+        
+
+        let fileManager = FileManager.default
+
+        // Documents 디렉토리 경로 가져오기
+        if let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+
+            // 파일 경로 생성
+            let fileURL = documentsDirectory.appendingPathComponent("example.csv")
+
+            do {
+                // CSV 데이터를 파일에 쓰기
+                try csvData.write(to: fileURL, atomically: true, encoding: .utf8)
+                print("CSV 파일이 생성되었습니다. 경로: \(fileURL.path)")
+            } catch {
+                // 에러 처리
+                print("CSV 파일을 생성하는 데 실패했습니다. 에러: \(error.localizedDescription)")
+            }
+        }
+        
     }
 }
 

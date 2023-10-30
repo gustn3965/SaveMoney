@@ -111,6 +111,16 @@ class NTMonth: NTObject, NTMonthleable {
         }
     }
     
+    var actualSpendMoney: Int {
+        var spendMoney: Int = 0
+        for idx in 1...self.dateDate.countOfDay {
+            self.spendList(atDay: idx).forEach {
+                spendMoney += $0.spend
+            }
+        }
+        return spendMoney
+    }
+    
     var recommendSpend: Int {
         // (소비예상금액 - 총 지출한 금액) / 남은 매일소비예상날짜개수
         

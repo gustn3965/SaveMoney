@@ -186,6 +186,14 @@ class DayListViewController: UIViewController {
         show(addMonth, sender: self)
     }
     
+    @IBAction func showCSVViewController(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let addMonth: TotalMonthCSVViewController = storyboard.instantiateViewController(identifier: "TotalMonthCSVViewController") as? TotalMonthCSVViewController else { return }
+        addMonth.ntMonth = self.currentNtMonth
+        show(addMonth, sender: self)
+    }
+    
+    
     
     // MARK: - Coordinate
     func showAddMonthViewController() {

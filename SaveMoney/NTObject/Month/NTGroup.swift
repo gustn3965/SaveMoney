@@ -44,4 +44,12 @@ class NTGroup: NTObject, NTGroupable {
         return debugString
     }
     
+    // 그룹에 속하는 모든 Ntmont
+    var allNtMonths: [NTMonth]? {
+        guard let allNtMonths: [NTMonth] = DataStore.fetch(NTMonth.self, whereQuery: "groupId == \(String(self.id)) ORDER BY date DESC") as? [NTMonth] else {
+            return nil
+        }
+        return allNtMonths
+    }
+    
 }
