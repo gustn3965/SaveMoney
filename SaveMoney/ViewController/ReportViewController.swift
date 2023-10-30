@@ -9,6 +9,17 @@ import UIKit
 
 var openAIKey: String = "secret key"
 
+@MainActor class Wallet {
+    var amount: Int
+    init(amount: Int) {
+        self.amount = amount
+    }
+    
+    func spendMoney(_ money: Int) {
+        self.amount -= money
+    }
+}
+
 class ReportViewController: UIViewController {
     var ntMonth: NTMonth?
     
@@ -17,7 +28,10 @@ class ReportViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var tempValueLabel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
     var session: SSEClient?
+    
+    var wallet: Wallet = Wallet(amount: 10000)
     
     var answer: String = ""
     
@@ -45,11 +59,17 @@ class ReportViewController: UIViewController {
     
     @IBAction func clickAI(_ sender: Any) {
         let val = round(stepper.value * 10) / 10
-        answer = ""
+//        answer = ""
+//
+//        session = SSEClient(content: ntMonth?.report ?? "", temp: val)
+//        session?.delegate = self
+//        session?.start()
         
-        session = SSEClient(content: ntMonth?.report ?? "", temp: val)
-        session?.delegate = self
-        session?.start()
+        self.sendChatCompletionRequest()
+        
+        
+        self.wallet.spendMoney(1000)
+        
 
     }
     
@@ -64,6 +84,137 @@ class ReportViewController: UIViewController {
         self.tempValueLabel.text = "\(val)"
     }
     
+    
+    func sendChatCompletionRequest() {
+        // 1. URL 생성
+        if let url = URL(string: "https://api.openai.com/v1/chat/completions") {
+            // 2. URLRequest 생성
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            // 3. HTTP 헤더 설정
+            request.setValue("Bearer \(openAIKey)", forHTTPHeaderField: "Authorization")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("text/plain", forHTTPHeaderField: "Accept")
+            
+            // 4. 요청 데이터 생성
+            let requestData: [String: Any] = [
+                "model": "gpt-3.5-turbo",
+                "messages": [
+                    ["role": "user", "content": "오늘 날씨 알려줘"]
+                ],
+                "temperature": 0.7,
+                "stream": false
+            ]
+            
+            // 5. 요청 데이터를 JSON 형식으로 변환
+            if let postData = try? JSONSerialization.data(withJSONObject: requestData) {
+                // 6. 요청 데이터를 요청의 본문에 할당
+                request.httpBody = postData
+                
+                // 7. URLSession 생성
+                let session = URLSession.shared
+                
+                // 8. URLSessionDataTask 생성
+                Task {
+//                    let (data, response) = try await session.data(for: request)
+                    let image = try await self.requestImage()
+                    self.imageView.image = image
+                }
+                Task.init {
+                    let image = try await self.requestImage()
+                }
+                
+                Task.detached {
+                    let image = try await self.requestImage()
+                }
+//
+//                DispatchQueue.global().async {
+//                    do {
+//
+//
+//                        let image = try self.syncImage()
+//                        DispatchQueue.main.async {
+//                            self.imageView.image = image
+//                        }
+//
+//
+//                    } catch {
+//                    }
+//                }
+                
+                print("--------")
+                return
+                
+                let task = session.dataTask(with: request) { (data, response, error) in
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    // 9. 응답 처리
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if httpResponse.statusCode == 200 {
+                            // HTTP 요청이 성공한 경우
+                            if let responseData = data {
+                                // responseData를 사용하여 응답 데이터 처리
+                                if let responseString = String(data: responseData, encoding: .utf8) {
+                                    print("Response: \(responseString)")
+                                }
+                            }
+                        } else {
+                            // HTTP 요청이 실패한 경우
+                            print("Error: \(httpResponse.statusCode)")
+                        }
+                    }
+                }
+                
+                // 10. 요청 시작
+                task.resume()
+            }
+        }
+    }
+    
+    func requestImage() async throws -> UIImage {
+        do {
+            let data = try Data(contentsOf: URL(string: "https://blog.kakaocdn.net/dn/69TT8/btqGbNFJF5p/zTavch0F8BlAqGaDKVMU41/img.jpg")!)
+            await MainActor.run(body: {
+                
+            })
+            print(data.count)
+            return UIImage(data: data)!
+                                
+        } catch let error {
+            throw error
+        }
+    }
+    
+    func syncImage() throws -> UIImage {
+        do {
+            let data = try Data(contentsOf: URL(string: "https://blog.kakaocdn.net/dn/69TT8/btqGbNFJF5p/zTavch0F8BlAqGaDKVMU41/img.jpg")!)
+            print(data.count)
+            return UIImage(data: data)!
+                                
+        } catch let error {
+            throw error
+        }
+    
+    }
+    
+//    func backgroundThreadImage() throws -> UIImage {
+//        DispatchQueue.global().async {
+//            do {
+//                let data = try Data(contentsOf: URL(string: "https://blog.kakaocdn.net/dn/69TT8/btqGbNFJF5p/zTavch0F8BlAqGaDKVMU41/img.jpg")!)
+//                print(data.count)
+//                return UIImage(data: data)!
+//
+//            } catch let error {
+//                throw error
+//            }
+//        }
+//
+//
+//    }
 }
 
 extension ReportViewController: SSEClientDelegate {

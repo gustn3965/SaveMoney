@@ -315,6 +315,13 @@
                                     <action selector="clickRefresh:" destination="XWS-CY-8n8" eventType="touchUpInside" id="Ssa-MS-RaI"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NXd-ZD-KNy">
+                                <rect key="frame" x="57" y="457.5" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="V3Y-7y-Czu"/>
+                                    <constraint firstAttribute="width" constant="300" id="thz-jW-dwe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lp5-9k-g4l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -328,9 +335,11 @@
                             <constraint firstItem="iFu-Va-2c6" firstAttribute="top" secondItem="vBN-BZ-3ve" secondAttribute="bottom" constant="30" id="HkX-OC-YY7"/>
                             <constraint firstItem="IIw-sZ-vzJ" firstAttribute="centerX" secondItem="lp5-9k-g4l" secondAttribute="centerX" id="IRd-X5-jcy"/>
                             <constraint firstItem="vBN-BZ-3ve" firstAttribute="centerX" secondItem="lp5-9k-g4l" secondAttribute="centerX" id="Lp7-iA-4md"/>
+                            <constraint firstItem="NXd-ZD-KNy" firstAttribute="centerX" secondItem="9AS-Ol-6ga" secondAttribute="centerX" id="PGe-MU-vPE"/>
                             <constraint firstItem="lp5-9k-g4l" firstAttribute="top" secondItem="IIw-sZ-vzJ" secondAttribute="top" constant="-10" id="QjC-AH-eEM"/>
                             <constraint firstItem="irs-1A-bUo" firstAttribute="leading" secondItem="vBN-BZ-3ve" secondAttribute="trailing" constant="30.5" id="RtD-5m-i9T"/>
                             <constraint firstItem="qCb-Fv-x7o" firstAttribute="top" secondItem="vBN-BZ-3ve" secondAttribute="bottom" constant="8.5" id="TCH-S6-E6K"/>
+                            <constraint firstItem="NXd-ZD-KNy" firstAttribute="centerY" secondItem="9AS-Ol-6ga" secondAttribute="centerY" id="VIw-70-mS5"/>
                             <constraint firstItem="iFu-Va-2c6" firstAttribute="leading" secondItem="lp5-9k-g4l" secondAttribute="leading" constant="14" id="Xia-zv-F3p"/>
                             <constraint firstItem="0u0-tE-G4K" firstAttribute="top" secondItem="ELI-sb-948" secondAttribute="bottom" constant="30" id="ZT3-dN-cyv"/>
                             <constraint firstItem="zD2-2n-L5y" firstAttribute="centerY" secondItem="qCb-Fv-x7o" secondAttribute="centerY" id="aSR-r7-KDa"/>
@@ -346,6 +355,7 @@
                     </view>
                     <connections>
                         <outlet property="gptTextView" destination="9AS-Ol-6ga" id="DKk-dU-8gs"/>
+                        <outlet property="imageView" destination="NXd-ZD-KNy" id="YEj-PH-fRG"/>
                         <outlet property="stepper" destination="qCb-Fv-x7o" id="wqZ-4k-bhv"/>
                         <outlet property="tempValueLabel" destination="Fuv-Sn-BVT" id="FYR-y7-6z4"/>
                         <outlet property="textView" destination="ELI-sb-948" id="8iy-52-Joh"/>
